@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+	<title>react try</title>
+</head>
+<body>
+	<h1>React try</h1>
+	<script src="../js/react.min.js"></script>
+	<script src="../js/JSXTransformer.js"></script>
+	<div id="my-div"></div>
+	<script type ="text/jsx">
+	/** @jsx React.DOM */
+		var Message = React.createClass({
+			getInitialState:function () {
+				return{
+					messages:[
+						'first message',
+						'second message',
+						'third message',
+						'fourth message'
+					]
+				}
+			},
+			render:function () {
+				var allMessages = this.state.messages.map(function (msg) {
+					return <SubMessage statement = {msg}/>
+				});
+				return (
+					<div>
+						<h1>Hello CCC</h1>
+						{allMessages}
+					</div>
+				);
+			}
+		});
+		var SubMessage = React.createClass({
+			getDefaultProps:function () {
+				return{
+					statement:'good to see you'
+				}
+			},
+			render: function () {
+				return <h4> i said: {this.props.statement}</h4>
+			}
+		});
+		var myMessageList = React.renderComponent(<Message/>, document.getElementById('my-div'));
+	</script>
+</body>
+</html>

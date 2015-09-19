@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+	<title>react try</title>
+</head>
+<body>
+	<h1>React try</h1>
+	<script src="../js/react.min.js"></script>
+	<script src="../js/JSXTransformer.js"></script>
+	<div id="my-div"></div>
+	<script type ="text/jsx">
+	/** @jsx React.DOM */
+		var Message = React.createClass({
+			getInitialState:function () {
+				return{
+					messages:[
+						'first'
+					]
+				}
+			},
+			deleteMessage:function (msg) {
+				console.log('inside deleteMessage', msg);
+			},
+			handleClick:function (e) {
+				var newMsg = this.refs.newMessage.getDOMNode().value;
+				var addedMessges = this.state.messages.concat([newMsg]);
+				this.setState({messages:addedMessges});
+				
+			},
+			render:function () {
+				var allMessages = this.state.messages.map(function (msg) {
+					return <SubMessage message={msg} onDelete={this.deleteMessage}/>
+				}.bind(this));
+				return(
+					<div>
+						 <h1>My list</h1>
+						 <input ref="newMessage" />
+						 <button className="btn btn-primary" onClick={this.handleClick}>add</button>
+						 {allMessages}
+					</div>
+				);
+			}
+		});
+
+		var SubMessage = React.createClass({
+			handleDelete:function (e) {
+				console.log('handleDelete', this.props);
+				this.props.onDelete(this.props.message);
+			},
+			render:function () {
+				return(
+					<div>
+						<span>{this.props.message}</span>
+						<button className="btn btn-danger" onClick={this.handleDelete}>x</button>
+					</div>
+					);
+			}
+		})
+
+		var MessageComponent = React.renderComponent(<Message/>, document.getElementById('my-div'));
+	</script>
+</body>
+</html>

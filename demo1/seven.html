@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <script src="js/react.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="my-div"></div>
+    <script type="text/jsx">
+      /** @jsx React.DOM */
+      var Greeting = React.createClass({
+        getInitialState:function () {
+          return{
+            count:0
+          }
+        },
+        IncrementCount:function () {
+          this.setState({
+            count:this.state.count + 1
+          })
+        },
+        render: function () {
+          return(
+            <div>
+              <h3>My counter</h3>
+              <h1>Count: {this.state.count}</h1>
+              <button onClick={this.IncrementCount}>Increment</button>
+            </div>
+          )
+        }
+      });
+      React.renderComponent(<Greeting/>, document.getElementById('my-div'));
+    </script>
+  </body>
+</html>

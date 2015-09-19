@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+    <script src="js/react.js"></script>
+    <script src="js/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="my-div"></div>
+    <script type="text/jsx">
+      /** @jsx React.DOM */
+      var FilteredList = React.createClass({
+        getInitialState:function () {
+          return{
+            initialItems:[
+              'Apples',
+              'Brocoli',
+              'Chicken',
+              'Duck',
+              'Eggs',
+              'Fish',
+              'Granola',
+              'Hash Browns'
+            ],
+            items:[]
+          }
+        },
+        filterList:function (event) {
+          var updatedList = this.state.initialItems;
+          updatedList = updatedList.filter(function (item) {
+            return item.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
+          });
+          this.setState({items: updatedList});
+        },
+        componentWillMount:function () {
+          this.setState({items: this.state.initialItems})
+        },
+        render:function () {
+          return(
+            <div className ="filter-list">
+              <input placeholder="Search" onChange={this.filterList}/>
+              <List items={this.state.items}/>
+            </div>
+          )
+        }
+      });
+      var List = React.createClass({
+        render:function () {
+          return(
+            <ul>
+              {
+                this.props.items.map(function (item) {
+                  return <li key={item}>{item}</li>
+                })
+              }
+            </ul>
+          )
+        }
+      });
+
+      React.renderComponent(<FilteredList/>, document.getElementById('my-div'));
+    </script>
+  </body>
+</html>

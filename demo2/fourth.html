@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+	<title>react try</title>
+</head>
+<body>
+	<h1>React try</h1>
+	<script src="../js/react.min.js"></script>
+	<script src="../js/JSXTransformer.js"></script>
+	<div id="my-div"></div>
+	<script type ="text/jsx">
+	/** @jsx React.DOM */
+
+	var MessageBox = React.createClass({
+		render:function () {
+			return(
+			<div className = "jumbotron container">
+				<h1>Hello Chicago Code Camp  {this.props.name}</h1>
+				<span>react is super fast</span>
+				<SubMessage/>
+			</div>
+			);
+		}
+	});
+
+	var SubMessage = React.createClass({
+		render: function () {
+			return(
+				<div>
+					<h3 className="text-primary">its very nice day</h3>
+					<strong className="text-danger"> dangerous text</strong>
+				</div>
+			);
+		}
+	})
+
+	React.renderComponent(<MessageBox name="abc"/>, document.getElementById('my-div'));
+	</script>
+</body>
+</html>

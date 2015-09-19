@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+	<title>react try</title>
+</head>
+<body>
+	<h1>React try</h1>
+	<script src="../js/react.min.js"></script>
+	<script src="../js/JSXTransformer.js"></script>
+	<div id="my-div"></div>
+	<script type ="text/jsx">
+	/** @jsx React.DOM */
+		var Message = React.createClass({
+			getInitialState:function () {
+				return{
+					click:0
+				}
+			},
+			handleClick:function () {
+				console.log('clicked', this.state.click);
+				this.setState({
+					click:this.state.click+1
+				})
+			},
+			render:function () {
+				return (
+					<div>
+						<h1>you have clicked: {this.state.click}times</h1>
+						<button className="btn btn-primary" onMouseMove={this.handleClick}>click me </button>
+					</div>
+				);
+			}
+		})
+		React.renderComponent(<Message/>, document.getElementById('my-div'));
+	</script>
+</body>
+</html>
