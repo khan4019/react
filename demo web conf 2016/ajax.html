@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/react-grid-layout.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+	
+	var UserGist = React.createClass({
+	  getInitialState: function() {
+	    return {
+	      username: '',
+	      lastGistUrl: ''
+	    };
+	  },
+
+	  componentDidMount: function() {
+	    this.serverRequest = $.get(this.props.source, function (result) {
+	      var lastGist = result[0];
+	      this.setState({
+	        username: lastGist.owner.login,
+	        lastGistUrl: lastGist.html_url
+	      });
+	    }.bind(this));
+	  },
+
+	  componentWillUnmount: function() {
+	    this.serverRequest.abort();
+	  },
+
+	  render: function() {
+	    return (
+	      <div>
+	        {this.state.username}'s last gist is
+	        <a href={this.state.lastGistUrl}>here</a>.
+	      </div>
+	    );
+	  }
+	});
+
+	ReactDOM.render(
+	  <UserGist source="https://api.github.com/users/khan4019/gists" />,
+	  document.getElementById('example')
+	);
+    </script>
+  </body>
+</html>

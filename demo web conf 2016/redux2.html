@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://npmcdn.com/redux@latest/dist/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+
+    <div id="example"></div>
+    <h4>React and Redux</h4>
+    <script type="text/babel">
+    
+    var counter = function(state, action){
+      if (typeof state === 'undefined') {  //this is important checking undefined type
+        return 0;
+      }
+      switch(action.type){
+        case 'INCREMENT':
+          return state + 1;
+        case 'DECREMENT':
+          return state - 1;
+        default:
+          return state;  
+      }
+
+    }  
+
+    var store = Redux.createStore(counter);
+
+    var Counter = React.createClass({
+      onIncrement:function(){
+        store.dispatch({type:'INCREMENT'});
+      },
+      onDecrement:function(){
+        store.dispatch({type:'DECREMENT'})
+      },
+      render:function(){
+        return <div>
+          <h1>Count:{store.getState()}</h1>
+          <button onClick={this.onIncrement}>+</button>
+          <button onClick={this.onDecrement}>-</button>
+        </div>
+      }
+    });
+
+    //we need to put this under render function so that we can run it again and again
+    
+    var render =  function(){
+      ReactDOM.render(<Counter/>, document.getElementById("example")); 
+    }
+
+    store.subscribe(render);
+    render();
+
+     
+      
+    </script>
+  </body>
+</html>

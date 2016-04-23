@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var FilterItems = React.createClass({
+      	getInitialState:function(){
+      		return {
+      			initialItems: [
+      				'angular',
+      				'ember',
+      				'react',
+      				'meteor',
+      				'node',
+      				'jquery'
+      			], 
+      			filteredItems:[]
+      		}
+      	},
+      	filterItems:function(event){
+      		var initialItems = this.state.initialItems;
+      		var searchKey = event.target.value;
+      		console.log(searchKey);
+      		var filteredItems = initialItems.filter(function(item){
+      			return item.indexOf(searchKey) !==-1;
+      		});
+      		this.setState({
+      			filteredItems:filteredItems
+      		})
+      	},
+      	componentWillMount:function(){
+      		this.setState({
+      			filteredItems:this.state.initialItems
+      		})
+      	},
+      	render:function(){
+      		return <div>
+      				<h3>Your items</h3>
+      				<input onChange={this.filterItems}></input>
+      				<MyList items = {this.state.filteredItems}/>
+      			</div>
+      	}
+      });
+
+      var MyList = React.createClass({
+      	render:function(){
+      		return <ul>
+      					{this.props.items.map(function(item){
+      						return <li key={item}>{item}</li>
+      					})}
+      				</ul>
+      	}
+      })
+
+      ReactDOM.render(<FilterItems/>, document.getElementById('example'))
+
+    </script>
+  </body>
+</html>

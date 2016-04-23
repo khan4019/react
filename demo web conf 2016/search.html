@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var SearchBox = React.createClass({
+        getInitialState:function(){
+          return {
+            friends:[
+              'alex',
+              'bob',
+              'clara',
+              'david',
+              'elon',
+              'flora',
+              'George',
+              'henry',
+              'ivy',
+              'kim'
+            ],
+            selectedFriends:[]
+          }
+        },
+        componentDidMount:function(){
+
+          var xmlHttp = new XMLHttpRequest();
+          var url = 'https://github.com/khan4019/advJSDebug/blob/master/demo/data.js';
+
+          xmlHttp.onreadystatechange = function(){
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var myArr = JSON.parse(xmlHttp.responseText);
+                console.log(myArr);
+                }
+          }
+
+          xmlHttp.open("GET", url, true);
+          xmlHttp.send();
+
+
+          this.setState({
+            selectedFriends:this.state.friends
+          })
+        },
+        changeHandler:function(event){
+          var searchKey = event.target.value;
+
+          var selectedFriends = this.state.friends.filter(function(item){
+            return item.indexOf(searchKey) != -1;
+          });
+
+          this.setState({
+            selectedFriends:selectedFriends
+          })
+        },
+        render:function(){
+          var allFriends = this.state.selectedFriends.map(function(item){
+            return <User name={item}/>
+          });
+          return <div>
+            <p>My buddies</p>
+            <input onChange={this.changeHandler}></input>
+            <ul>{allFriends}</ul>
+          </div>
+        }
+      });
+
+      var User = React.createClass({
+        render:function(){
+          return <li>{this.props.name}</li>
+        }
+      })
+
+      ReactDOM.render(<SearchBox/>, document.getElementById('example'))
+    </script>
+  </body>
+</html>

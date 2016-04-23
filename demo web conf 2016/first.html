@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+    var Message = React.createClass({
+      render:function(){
+         return <div>
+         			<h1>Hello Web Conf</h1>
+         			<h4>Good to see you</h4>
+         			<SubMessage name="Jackie"/>
+         			<SubMessage name="Chan"/>
+         		</div>
+      }
+    });
+
+    var SubMessage = React.createClass({
+    	render:function(){
+    		return <h4>Good to see you again {this.props.name}</h4>
+    	}
+    })
+
+      ReactDOM.render(<Message/>, document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>

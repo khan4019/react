@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var Counter = React.createClass({
+      	getInitialState:function(){
+      		return {
+      			count: 2
+      		}
+      	},
+      	incrementCounter:function(){
+      		this.setState({
+      			count: this.state.count+1
+      		})
+      	},
+      	render:function(){
+      		return  <div>
+      					<h1>Count: {this.state.count}</h1>
+      					<button onClick={this.incrementCounter}>Click me</button>
+      				</div>	
+      	}
+      });
+
+      ReactDOM.render(<Counter/>, document.getElementById('example'))
+    </script>
+  </body>
+</html>
