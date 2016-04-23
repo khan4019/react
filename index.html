@@ -76,6 +76,9 @@
 					white-space: nowrap;
 					left:0px;
 				}
+				ul.nolist li{
+					list-style: none;
+				}
 			</style>
 			<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 			<script>
@@ -124,8 +127,8 @@
 							<h2>JS is always hot</h2>
 							<br>
 							<br>
-							<ul>
-								<!-- <li class="fragment">2009-ExtJS is so hot</li> -->
+							<ul class="nolist">
+								<li class="fragment">2007-JQuery is so hot</li>
 								<li class="fragment">2012-Backbone is so hot</li>
 								<li class="fragment">2014-Angular is so hot</li>
 								<li class="fragment">2015-React is so hot</li>
@@ -134,18 +137,29 @@
 						</section>
 						<section>
 							<h2>Why React?</h2>
-							<ul>
+							<ul class="nolist">
 								<li class="fragment">Fast</li>
 								<li class="fragment">Pluggable</li>
+								<li class="fragment">Component oriented</li>
 								<li class="fragment">Virtual DOM</li>
 								<li class="fragment">JSX</li>
 								<li class="fragment">Isomorphic Rendering</li>
 								<li class="fragment">Unidirectional Flow</li>
+								<li class="fragment">Developer tool</li>
+								<p class="hide">React proponents would tell you that forcing yourself to separate HTML and JS (presentation and logic) is more of a separation of technologies rather than concerns. If you think in a React way, the concerns of the application will be small composeable components. Each of these components does a specific thing, and from this is where the real separation of concerns comes.</p>
+								<div class="hide">
+									<h3>Virutal DOM</h3>
+									<p>Imagine you had an object that you modeled around a person. It had every relevant property a person could possibly have, and mirrored the persons current state. This is basically what React does with the DOM.
+
+									Now think about if you took that object and made some changes. Added a mustache, some sweet biceps and Steve Buscemi eyes. In React-land, when we apply these changes, two things take place. First, React runs a “diffing” algorithm, which identifies what has changed. The second step is reconciliation, where it updates the DOM with the results of diff.
+
+									The way React works, rather than taking the real person and rebuilding them from the ground up, it would only change the face and the arms. This means that if you had text in an input and a render took place, as long as the input’s parent node wasn’t scheduled for reconciliation, the text would stay undisturbed.</p>
+								</div>
 							</ul>
 						</section>
 						<section>
 							<h2>Virtual DOM</h2>
-							<ul>
+							<ul class="nolist">
 								<li>Compare DOM's current state to desired new state</li>
 								<li class="fragment">Update the DOM in the most efficient way</li>
 								<li class="fragment">Synthetic Events</li>
@@ -155,7 +169,7 @@
 						</section>
 						<section>
 							<h2>JSX</h2>
-							<ul>
+							<ul class="nolist">
 								<li>"HTML" in JavaScript</li>
 								<li class="fragment">Differences: className, htmlFor</li>
 								<li class="fragment">Compiles to JavaScript</li>
@@ -165,13 +179,24 @@
 						</section>
 						<section>
 							<h2>Why JSX</h2>
-							<ul>
+							<ul class="nolist">
 								<li>Angular, Ember, knockout uses "JS" in HTML</li>
 								<li class="fragment">&lt;div ng-repeat ="user in users"&gt;</li>
 								<li class="fragment">{{#each user in users}}</li>
 								<li class="fragment">HTML doesn't tell typo in HTML</li>
 								<li class="fragment">JS will throws error in the line it happens</li>
 							</ul>
+						</section>
+						<section>
+							<h2>What is React</h2>
+							<ul class="nolist">
+								<li class="frgment">only view</li>
+								<li class="fragment">evolving ecosystem</li>
+								<li class="fragment">Component tells how it will look like</li>
+								<li class="fragment">Render on server.</li>
+							</ul>
+							<p class="hide">You absolutely cannot build a fully functional dynamic application with React alone</p>
+							<p class="hide">React gives you a template language and some function hooks to essentially render HTML. That's all React outputs, HTML. Your bundles of HTML / Javascript, called "components", are allowed things like storing their own internal state in memory (such as which tab is selected in a tab view), but in the end you just barf out HTML.</p>
 						</section>
 					</section>
 					<section>
@@ -185,7 +210,7 @@
 							<h2>One step at a time</h2>
 							<br>
 							<br>
-							<ul>
+							<ul class="nolist">
 								<li>First step - absolute beginners</li>
 								<li class="fragment">Second step - small app</li>
 								<li class="fragment">Third step - grid and charts</li>
@@ -213,7 +238,7 @@
 						</section>
 						<section>
 							<h2>Life cycle methods</h2>
-							<ul>
+							<ul class="nolist">
 								<li class="fragment">componentWillMount</li>
 								<li class="fragment">componentDidMount</li>
 								<li class="fragment">componentWillRecieveProps</li>
@@ -236,7 +261,7 @@
 						</section>
 						<section>
 							<h2>React Router</h2>
-							<ul>
+							<ul class="nolist">
 								<li class="fragment">Complete routing library</li>
 								<li class="fragment">Simple api</li>
 								<li class="fragment">Lazy loading</li>
@@ -254,7 +279,7 @@
 						</section>
 						<section>
 							<h2>Flux</h2>
-							<ul>
+							<ul class="nolist">
 								<li>Architecture recommendation by facebook</li>
 								<li>Uni directional data flow</li>
 								<li>View, dispatcher, store, event emitter</li>
@@ -293,7 +318,7 @@
 						</section>
 						<section>
 							<h2>React Dev tool</h2>
-							<ul>
+							<ul class="nolist">
 								<li>Color coded Tree view</li>
 								<li>Search</li>
 								<li>Change state props</li>
@@ -323,7 +348,7 @@
 					<section>
 						<section>
 							<h2>Need more?</h2>
-							<ul>
+							<ul class="nolist">
 								<li><a href="https://github.com/gaearon/react-hot-loader">React Hot Reloader</a></li>
 								<li><a href="http://ricostacruz.com/cheatsheets/react.html">React cheat sheet</a></li>
 								<li><a href="https://github.com/chenglou/react-motion">react-motion</a></li>
