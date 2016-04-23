@@ -4,7 +4,7 @@
 		<head>
 			<meta charset="utf-8">
 
-			<title>React JS</title>
+			<title>React JS- for beginners</title>
 
 			<meta name="description" content="Getting Started with React JS">
 			<meta name="author" content="Md Khan">
@@ -61,6 +61,9 @@
 					font-weight: bold;
 					color:purple;
 				}	
+				pre code{
+					text-align: left;
+				}
 				.hide{
 					display: none;
 				}			
@@ -70,7 +73,6 @@
 					width: 50px;
 					height: 40px;
 					padding-top: 10px;
-					text-align: center;
 					color: #fff;
 					font-size: 10px;
 					white-space: nowrap;
@@ -227,14 +229,14 @@
 					</section>
 					<section>
 						<section>
-							<h1>Grid & Charts</h1>
-						</section>
-						<section>
-							<h2>React Grid Libraries</h2>
-							<ul class="nolist">
-								<li><a href="http://griddlegriddle.github.io/Griddle/">griddle</a></li>
-								<li><a href="https://github.com/zippyui/react-datagrid">react-datagrid</a></li>
-							</ul>
+							<h1>Recap</h1>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<a href="http://ricostacruz.com/cheatsheets/react.html">React cheat sheet</a>
 						</section>
 						<section>
 							<h2>Life cycle methods</h2>
@@ -250,6 +252,31 @@
 							<br>
 							<br>
 							<a href="https://facebook.github.io/react/docs/component-specs.html">component spec</a>
+						</section><section>
+						<h2>AJAX</h2>
+						<pre><code>
+React.createClass({
+    componentWillMount: function () {
+    	$.get(this.props.url, function (data) {
+      		this.setState(data);
+    	}.bind(this));
+   },
+
+  render: function () {...}
+});
+						</code></pre>
+					</section>
+					</section>
+					<section>
+						<section>
+							<h1>Large Application</h1>
+						</section>
+						<section>
+							<h2>React Grid Libraries</h2>
+							<ul class="nolist">
+								<li><a href="http://griddlegriddle.github.io/Griddle/">griddle</a></li>
+								<li><a href="https://github.com/zippyui/react-datagrid">react-datagrid</a></li>
+							</ul>
 						</section>
 						<section>
 							<h2>Charts</h2>
@@ -257,7 +284,11 @@
 							<br>
 							<a href="https://github.com/esbullington/react-d3">react-d3</a>
 							<br>
+							<a href="https://www.youtube.com/watch?v=UP1nCXG2t4M">React + D3 video</a>
+							<br>
 							<a href="https://github.com/NuCivic/react-nvd3">react-nvd3</a>
+							<br>
+							<a href="https://rosko.github.io/slides/2016-04-declarative-charts/#/liveedit?_k=uts5z0">Rumble Chart Live Edit</a>
 						</section>
 						<section>
 							<h2>React Router</h2>
@@ -272,12 +303,21 @@
 							<br>
 							<a href="https://github.com/rackt/react-router">react-router</a>
 						</section>
+						<section>
+							<h2>React CSS Framework</h2>
+							<ul class="nolist">
+								<li><a href="http://react-bootstrap.github.io/getting-started.html">React Bootstrap</a></li>
+								<li><a href="https://www.muicss.com/docs/v1/react/introduction">React Material Design</a></li>
+								<li class="fragment"><a href="https://github.com/elementalui/elemental">Element UI</a></li>
+								<li class="fragment"><a href="https://react.rocks/tag/CSSFramework">15 React CSS Framework</a></li>
+							</ul>
+						</section>
 					</section>
 					<section>
 						<section>
-							<h1>Large application</h1>
+							<h1>Manage State</h1>
 						</section>
-						<section>
+						<!-- <section>
 							<h2>Flux</h2>
 							<ul class="nolist">
 								<li>Architecture recommendation by facebook</li>
@@ -294,7 +334,7 @@
 						<section>
 							<h2>Flux flow</h2>
 							<img src="images/flux.png" height="393" width="1300" alt="">
-						</section>
+						</section> -->
 						<section>
 							<h2>Redux</h2>
 							<br>
@@ -350,13 +390,9 @@
 							<h2>Need more?</h2>
 							<ul class="nolist">
 								<li><a href="https://github.com/gaearon/react-hot-loader">React Hot Reloader</a></li>
-								<li><a href="http://ricostacruz.com/cheatsheets/react.html">React cheat sheet</a></li>
 								<li><a href="https://github.com/chenglou/react-motion">react-motion</a></li>
 								<li><a href="https://github.com/paramaggarwal/react-dropzone">React drag drop</a></li>
 								<li><a href="https://aerotwist.com/blog/react-plus-performance-equals-what/">react performance</a></li>
-								<li><a href="https://github.com/reactjs/react-tutorial/">react on server</a></li>
-								<li><a href="https://www.paypal-engineering.com/2015/04/27/isomorphic-react-apps-with-react-engine">isomorphic react js</a></li>
-								
 							</ul>
 						</section>
 					</section>
