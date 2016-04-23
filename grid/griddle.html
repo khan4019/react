@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="../demo web conf 2016/build/react.js"></script>
+    <script src="../demo web conf 2016/build/react-dom.js"></script>
+
+    
+    <script src="../js/griddle.js"></script>
+    <script src="fakeData.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+
+      var Chart = React.createClass({
+        getInitialState:function(){
+          return {
+            gridData: fakeData
+          }
+        },
+        render:function(){
+          return <div>
+            <h1>Hello Griddle</h1>
+            <Griddle results={this.state.gridData} />
+          </div>
+        }
+      })
+      ReactDOM.render(
+        <Chart/>,
+
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
