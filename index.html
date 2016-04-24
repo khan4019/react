@@ -337,16 +337,30 @@ React.createClass({
 						</section> -->
 						<section>
 							<h2>Redux</h2>
+							<p>Components are given callback functions as props, which they call when a UI event happens</p>
 							<br>
+							<p class="fragment">Those callbacks create and dispatch actions based on the event</p>
 							<br>
-							<a href="http://likethemammal.github.io/reacttalk/">react, flux and a little bit redux</a>
+							<p class="fragment">Reducers process the actions, computing the new state</p>
+							<br>
+							<p class="fragment">The new state of the whole application goes into a single store.</p>
+							<br>
+							<p class="fragment">Components receive the new state as props and re-render themselves where needed.</p>
+							<br>
+							<a href="https://stormpath.com/blog/build-a-redux-powered-react-application/">Redux Powered React</a>
 						</section>
 						<section>
-							<h2>Relay</h2>
+							<h2>Redux</h2>
 							<br>
+							<ul class="nolist">
+								<li>Single source of truth</li>
+								<br>
+								<li>State is read-only</li>
+								<br>
+								<li>Change are made pure functional</li>
+							</ul>
 							<br>
-							<a href="https://facebook.github.io/relay">Relay: data driver react</a>
-							<br>
+							<a href="https://egghead.io/lessons/javascript-redux-the-single-immutable-state-tree?series=getting-started-with-redux">egghead.io redux video</a>
 						</section>
 						<section>
 							<h2>Starter kit</h2>
@@ -389,10 +403,10 @@ React.createClass({
 						<section>
 							<h2>Need more?</h2>
 							<ul class="nolist">
+								<li><a href="9 things every React.js beginner should know">9 things React beginners should know</a></li>
 								<li><a href="https://github.com/gaearon/react-hot-loader">React Hot Reloader</a></li>
-								<li><a href="https://github.com/chenglou/react-motion">react-motion</a></li>
-								<li><a href="https://github.com/paramaggarwal/react-dropzone">React drag drop</a></li>
 								<li><a href="https://aerotwist.com/blog/react-plus-performance-equals-what/">react performance</a></li>
+
 							</ul>
 						</section>
 					</section>
