@@ -114,7 +114,7 @@
 					</section>
 					<section>
 						<section>
-							<h2>React for Beginners</h2>
+							<h1>React for Beginners</h1>
 						</section>
 						<section>
 							<h2>JS is always hot</h2>
@@ -183,10 +183,10 @@
 						<section>
 							<h2>What is React</h2>
 							<ul class="nolist">
-								<li class="frgment">only view</li>
-								<li class="fragment">evolving ecosystem</li>
+								<li class="frgment">Only view</li>
+								<li class="fragment">Evolving ecosystem</li>
 								<li class="fragment">Component tells how it will look like</li>
-								<li class="fragment">Render on server.</li>
+								<li class="fragment">Render on server</li>
 							</ul>
 							<p class="hide">You absolutely cannot build a fully functional dynamic application with React alone</p>
 							<p class="hide">React gives you a template language and some function hooks to essentially render HTML. That's all React outputs, HTML. Your bundles of HTML / Javascript, called "components", are allowed things like storing their own internal state in memory (such as which tab is selected in a tab view), but in the end you just barf out HTML.</p>
@@ -230,14 +230,61 @@
 							<a href="http://ricostacruz.com/cheatsheets/react.html">React cheat sheet</a>
 						</section>
 						<section>
+							<h2>React Top Level API</h2>
+							<pre><code>
+React.Component //es6 classes only
+
+
+React.createClass
+
+
+React.createElement
+React.clonElement
+
+React.isValidElement
+
+React.DOM //JSX alternative
+React.propTypes
+React.Children
+							</code></pre>
+							<br>
+							<a href="https://facebook.github.io/react/docs/top-level-api.html">React Top level API</a>
+						</section>
+						<section>
+							<h2>ReactDOM top level API</h2>
+							<pre><code>
+
+ReactDOM.render(&lt;Component /&gt;, domnode, [callback]) // 0.14+
+
+
+ReactDOM.unmountComponentAtNode(domnode) // 0.14+
+ReactDOM.findDOMNode(c) // 0.14+
+
+
+ReactDOMServer.renderToString(&lt;Component /&gt;) // 0.14+
+ReactDOMServer.renderToStaticMarkup(&lt;Component /&gt;) // 0.14+
+							</code></pre>
+							<br>
+							<a href="http://reactcheatsheet.com/">another react cheat sheet</a>
+						</section>
+						<section>
 							<h2>Life cycle methods</h2>
 							<ul class="nolist">
-								<li class="fragment">componentWillMount</li>
-								<li class="fragment">componentDidMount</li>
-								<li class="fragment">componentWillRecieveProps</li>
-								<li class="fragment">shouldComponentUpdate</li>
-								<li class="fragment">componentWillUpdate</li>
-								<li class="fragment">componentDidUpdate</li>
+								<div class="fragment">
+									<li>componentWillMount</li>
+									<li>componentDidMount</li>	
+								</div>
+								<br>
+								<div class="fragment">
+									<li>componentWillUpdate</li>
+									<li>componentDidUpdate</li>
+								</div>
+								<br>
+								<div class="fragment">
+									<li>componentWillRecieveProps</li>
+									<li>shouldComponentUpdate</li>	
+								</div>
+								<br>
 								<li class="fragment">compnentWillUnmount</li>
 							</ul>
 							<br>
@@ -248,6 +295,7 @@
 						<pre><code>
 React.createClass({
     componentWillMount: function () {
+
     	$.get(this.props.url, function (data) {
       		this.setState(data);
     	}.bind(this));
@@ -256,6 +304,8 @@ React.createClass({
   render: function () {...}
 });
 						</code></pre>
+						<br>
+						<a href="http://andrewhfarmer.com/react-ajax-best-practices/">4 ways for React AJAX call</a>
 					</section>
 					</section>
 					<section>
@@ -328,15 +378,17 @@ React.createClass({
 						</section> -->
 						<section>
 							<h2>Redux</h2>
-							<p>Components are given callback functions as props, which they call when a UI event happens</p>
-							<br>
-							<p class="fragment">Those callbacks create and dispatch actions based on the event</p>
-							<br>
-							<p class="fragment">Reducers process the actions, computing the new state</p>
-							<br>
-							<p class="fragment">The new state of the whole application goes into a single store.</p>
-							<br>
-							<p class="fragment">Components receive the new state as props and re-render themselves where needed.</p>
+							<div class="largeText">
+								<p>Components are given callback functions as props, which they call when a UI event happens</p>
+								<br>
+								<p class="fragment">Those callbacks create and dispatch actions based on the event</p>
+								<br>
+								<p class="fragment">Reducers process the actions, computing the new state</p>
+								<br>
+								<p class="fragment">The new state of the whole application goes into a single store.</p>
+								<br>
+								<p class="fragment">Components receive the new state as props and re-render themselves where needed.</p>
+							</div>
 							<br>
 							<a href="https://stormpath.com/blog/build-a-redux-powered-react-application/">Redux Powered React</a>
 						</section>
@@ -349,6 +401,8 @@ React.createClass({
 								<li>State is read-only</li>
 								<br>
 								<li>Change are made pure functional</li>
+								<br>
+								<li class="fragment">Explain redux2.html</li>
 							</ul>
 							<br>
 							<a href="https://egghead.io/lessons/javascript-redux-the-single-immutable-state-tree?series=getting-started-with-redux">egghead.io redux video</a>
@@ -364,7 +418,7 @@ React.createClass({
 					</section>
 					<section>
 						<section>
-							<h2>Debug</h2>
+							<h1>Debug</h1>
 						</section>
 						<section>
 							<h2>React Dev tool</h2>
