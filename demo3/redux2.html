@@ -47,17 +47,12 @@
       }
     });
 
-    //we need to put this under render function so that we can run it again and again
-    
     var render =  function(){
       ReactDOM.render(<Counter/>, document.getElementById("example")); 
     }
 
     store.subscribe(render);
     render();
-
-     
-      
     </script>
   </body>
 </html>
